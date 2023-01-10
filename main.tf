@@ -71,7 +71,6 @@ module "tags" {
   source      = "hadenlabs/tags/null"
   version     = ">0.1"
   namespace   = var.namespace
-  environment = var.environment
   stage       = var.stage
   name        = var.name
   tags        = var.tags
