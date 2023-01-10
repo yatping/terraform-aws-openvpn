@@ -79,6 +79,7 @@ resource "null_resource" "openvpn_install" {
     inline = [
       format("%s %s", "sudo chmod a+x", local.templates.vpn.install.file),
       format("%s %s", "sudo ", local.templates.vpn.install.file),
+      "sudo cp /root/${var.admin_user}.ovpn /home/${self.triggers.user}/",
     ]
   }
 
@@ -113,6 +114,7 @@ resource "null_resource" "openvpn_adduser" {
     inline = [
       format("%s %s", "sudo chmod a+x", local.templates.vpn.update_user.file),
       format("%s %s", "sudo ", local.templates.vpn.update_user.file),
+      "sudo cp /root/${var.admin_user}.ovpn /home/${self.triggers.user}/",
     ]
   }
 }
